@@ -56,7 +56,7 @@ body{
   background:#c1deef;
   clip-path:polygon(0 0,100% 0,50% 60%);
   transform-origin:top;
-  transition:transform 1s ease;
+  transition:transform 0.4s ease;
   z-index:4;
 }
 
@@ -90,8 +90,8 @@ body{
 }
 
 @keyframes pullUp{
-  0%{transform:translate(-50%,40px)}
-  60%{transform:translate(-50%,-130px)}
+  0%{transform:translate(-50%,-90px)}
+  60%{transform:translate(-50%,-100px)}
   100%{transform:translate(-50%,100px)}
 }
 
@@ -157,6 +157,11 @@ button{
   color:#666;
   margin-top:10px;
 }
+  .envelope:not(.show-letter) .letter{
+  opacity:0 !important;
+  animation:none !important;
+}
+
 </style>
 </head>
 
@@ -260,6 +265,21 @@ form.addEventListener("submit", function(e){
   status.innerText = "💙 Mình đã nhận được xác nhận của cậu rồi!";
 });
 </script>
+<!--thêm cho thư hiện-->
+<script>
+const env = document.querySelector('.envelope');
+env.addEventListener('click', () => {
+  if(env.classList.contains('open') && !env.classList.contains('show-letter')){
+    setTimeout(()=>{
+      env.classList.add('show-letter');
+    }, 450);
+  }
+});
+</script>
 
 </body>
 </html>
+
+</body>
+</html>
+
